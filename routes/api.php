@@ -36,6 +36,7 @@ Route::prefix('auth')->group(function () {
     Route::get('/dashboard/turfs', [TurfController::class, 'index']);
     Route::get('/dashboard/addons', [AddonController::class, 'index']);
     Route::post('/social-login', [SocialAuthController::class, 'login']);
+    Route::post('/auth/social/facebook', [SocialAuthController::class, 'facebook']);
 });
 Route::middleware(['auth:users', 'can:admin'])  // adapt your gate/middleware
     ->prefix('/admin/u18')
