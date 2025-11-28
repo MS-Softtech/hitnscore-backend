@@ -40,7 +40,7 @@ class U18ProfileController extends Controller
      */
     public function apply(Request $request): JsonResponse
     {
-        $user = Auth::guard('users')->user();
+        $user = Auth::user();
         $res  = $this->service->apply($request->all() + ['file' => $request->file('file')], $user);
         return response()->json($res);
     }
@@ -52,7 +52,7 @@ class U18ProfileController extends Controller
      */
     public function status(): JsonResponse
     {
-        $user = Auth::guard('users')->user();
+        $user = Auth::user();
         return response()->json($this->service->status($user));
     }
 }

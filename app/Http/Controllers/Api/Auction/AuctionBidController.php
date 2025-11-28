@@ -27,7 +27,7 @@ class AuctionBidController extends Controller
      */
     public function placeBid(Request $request): JsonResponse
     {
-        $user = Auth::guard('users')->user();
+        $user = Auth::user();
         return response()->json($this->service->placeBid($request->all(), $user));
     }
 }

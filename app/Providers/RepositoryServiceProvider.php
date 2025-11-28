@@ -31,7 +31,6 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(LiveMatchListInterface::class, LiveMatchListRepository::class);
         $this->app->bind(U18Interface::class, U18Repository::class);
-        $this->app->bind(ReferralInterface::class, ReferralRepository::class);
         $this->app->bind(CorporateInterface::class, CorporateRepository::class);
         $this->app->bind(ReferralInterface::class, ReferralRepository::class);
         $this->app->bind(AuctionInterface::class, AuctionRepository::class);

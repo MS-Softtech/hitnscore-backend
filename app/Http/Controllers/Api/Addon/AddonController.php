@@ -38,7 +38,7 @@ class AddonController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        $user = Auth::guard('users')->user();
+        $user = Auth::user();
         return response()->json($this->service->listAddons($request->all(), $user));
     }
 }

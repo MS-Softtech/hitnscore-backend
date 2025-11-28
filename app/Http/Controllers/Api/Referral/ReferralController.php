@@ -1,5 +1,4 @@
 <?php
-// app/Http/Controllers/Api/Referral/ReferralController.php
 namespace App\Http\Controllers\Api\Referral;
 
 use App\Http\Controllers\Controller;
@@ -16,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
  * - newCode(): create a new unique referral code for the user.
  */
 class ReferralController extends Controller
+
 {
     private ReferralService $service;
 
@@ -25,24 +25,22 @@ class ReferralController extends Controller
     }
 
     /**
-     * GET /api/dashboard/referral/summary
      *
      * @return JsonResponse
      */
     public function summary(): JsonResponse
     {
-        $user = Auth::guard('users')->user();
+        $user = Auth::user();
         return response()->json($this->service->getSummary($user));
     }
 
     /**
-     * POST /api/referral/new-code
      *
      * @return JsonResponse
      */
     public function newCode(): JsonResponse
     {
-        $user = Auth::guard('users')->user();
+        $user = Auth::user();
         return response()->json($this->service->generateNewCode($user));
     }
 }

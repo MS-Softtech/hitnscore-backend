@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Http;
  * Class SocialAuthController
  * Handles social login requests from clients (Flutter).
  */
-class SocialAuthController extends Controller
+class SocialAuthController extends Controller 
 {
     public function __construct(private readonly AuthSocialServiceInterface $service) {}
     

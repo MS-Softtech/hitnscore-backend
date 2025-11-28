@@ -39,7 +39,7 @@ class CorporateEnrollController extends Controller
      */
     public function enroll(Request $request): JsonResponse
     {
-        $user = Auth::guard('users')->user();
+        $user = Auth::user();
         return response()->json($this->service->enrollTeam($request->all(), $user));
     }
 }

@@ -40,7 +40,7 @@ class TurfController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        $user = Auth::guard('users')->user();
+        $user = Auth::user();
         $res  = $this->service->listTurfs($request->all(), $user);
         return response()->json($res);
     }
