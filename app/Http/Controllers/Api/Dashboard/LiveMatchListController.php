@@ -45,8 +45,7 @@ class LiveMatchListController extends Controller
      */
     public function index(Request $request): JsonResponse
     {   
-         $id = (int) $request->attributes->get('auth_user_id');
-         $user = $this->service->me($id);
+          $user = Auth::user();
         $result = $this->service->getLiveMatchList($request->all(), $user);
 
         return response()->json($result);

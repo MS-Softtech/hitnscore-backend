@@ -268,4 +268,3 @@ class AuctionRepository implements AuctionInterface
         return $row->html ?? null;
     }
 }
-                                                                                                                

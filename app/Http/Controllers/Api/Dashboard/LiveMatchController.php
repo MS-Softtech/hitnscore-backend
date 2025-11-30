@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Service\Auth\AuthService;
 use App\Http\Service\Dashboard\LiveMatchService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -48,8 +49,7 @@ class LiveMatchController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        $id = (int) $request->attributes->get('auth_user_id');
-        $user = $this->service->me($id);
+          $user = Auth::user();
 
         $result = $this->liveMatchService->getLiveMatches($request->all(), $user);
 

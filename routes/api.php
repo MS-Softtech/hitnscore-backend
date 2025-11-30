@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\Turf\TurfController;
 use App\Http\Controllers\Api\Addon\AddonController;
 use App\Http\Controllers\Api\Referral\ReferralController;
 use App\Http\Controllers\Auth\SocialAuthController;
+use App\Http\Controllers\Api\Auction\AuctionController;
 
 Route::prefix('auth')->group(function () {
     Route::post('/register', [AuthController::class, 'register']);  // public
@@ -29,7 +30,7 @@ Route::prefix('auth')->group(function () {
     Route::get('/u18/status',  [U18ProfileController::class, 'status'])->middleware('jwt');  // returns {eligible_by_dob, approval_status, ...}
     Route::get('/dashboard/corporate/ads', [CorporateAdsController::class, 'index'])->middleware('jwt');
     Route::get('/auctions/live', [AuctionReadController::class, 'livePlayers'])->middleware('jwt');
-    Route::get('/auctions/{auctionId}/players', [AuctionReadController::class, 'players'])->middleware('jwt');
+    Route::get('/auctions-players/{auctionId}', [AuctionReadController::class, 'players'])->middleware('jwt');
     Route::get('/auctions/player/{playerId}', [AuctionReadController::class, 'player'])->middleware('jwt');// one player card
     Route::get('/dashboard/live-matches', [LiveMatchController::class, 'index'])->middleware('jwt');
     Route::get('/dashboard/live-match-list', [LiveMatchListController::class, 'index'])->middleware('jwt');
